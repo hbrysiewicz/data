@@ -2506,7 +2506,7 @@ Store = Service.extend({
     assert(`Passing classes to store.adapterFor has been removed. Please pass a dasherized string instead of ${modelName}`, typeof modelName === 'string');
     let normalizedModelName = normalizeModelName(modelName);
 
-    let { _adapterCache } = this;
+    let _adapterCache = this._adapterCache || {};
     let adapter = _adapterCache[normalizedModelName];
     if (adapter) { return adapter; }
 
